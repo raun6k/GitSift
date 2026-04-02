@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitsift"
+version = "1.0.0"
+description = "Git repository analyzer CLI — commit churn, contributor stats, and activity heatmaps"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Raunak Bhagate"}
+]
+dependencies = [
+    "gitpython>=3.1",
+    "rich>=13.0",
+    "matplotlib>=3.7",
+]
+
+[project.scripts]
+gitsift = "gitsift.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gitsift*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
